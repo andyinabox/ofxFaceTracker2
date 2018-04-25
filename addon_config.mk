@@ -29,7 +29,9 @@ common:
 	# include search paths, this will be usually parsed from the file system
 	# but if the addon or addon libraries need special search paths they can be
 	# specified here separated by spaces or one per line using +=
-	#ADDON_INCLUDES = libs/dlib/include
+	ADDON_INCLUDES =
+	ADDON_INCLUDES += libs/dlib/include
+	ADDON_INCLUDES += src
 
 	# any special flag that should be passed to the compiler when using this
 	# addon
@@ -68,21 +70,23 @@ common:
 
 	# when parsing the file system looking for include paths exclude this for all or
 	# a specific platform
+	ADDON_INCLUDES_EXCLUDE = libs/dlib/include/*
 	ADDON_INCLUDES_EXCLUDE = libs/dlib/include/%
 
-	ADDON_INCLUDES = libs/dlib/include
-	ADDON_INCLUDES += src
+	#ADDON_INCLUDES = libs/dlib/include
+	#ADDON_INCLUDES += src
 
-osx:
-	ADDON_LIBS = libs/dlib/lib/osx/libdlib.a
+	ADDON_LIBS = libs/dlib/lib/linux/x86_64/libdlib.a
+# osx:
+# 	ADDON_LIBS = libs/dlib/lib/osx/libdlib.a
 
-android/armeabi-v7a:
-	ADDON_LIBS = libs/dlib/lib/android/armeabi-v7a/libdlib.a
+# android/armeabi-v7a:
+# 	ADDON_LIBS = libs/dlib/lib/android/armeabi-v7a/libdlib.a
 
-android/x86:
-	ADDON_LIBS = libs/dlib/lib/android/x86/libdlib.a
+# android/x86:
+# 	ADDON_LIBS = libs/dlib/lib/android/x86/libdlib.a
 
-vs:
-	ADDON_LIBS = libs/dlib/lib/win/Release/dlib.lib
+# vs:
+# 	ADDON_LIBS = libs/dlib/lib/win/Release/dlib.lib
 
 
