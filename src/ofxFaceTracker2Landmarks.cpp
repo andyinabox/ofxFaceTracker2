@@ -1,4 +1,6 @@
 #include "ofxFaceTracker2Landmarks.h"
+#include "ofMesh.h"
+
 using namespace std;
 
 ofxFaceTracker2Landmarks::ofxFaceTracker2Landmarks(dlib::full_object_detection shape, ofxFaceTracker2InputInfo & info) : shape(shape), info(info){
@@ -64,6 +66,9 @@ vector<int> ofxFaceTracker2Landmarks::getFeatureIndices(Feature feature) {
         }
         case ALL_FEATURES: return consecutive(0, 68);
     }
+
+    ofLogError() << "Unknown feature.";
+    return std::vector<int>();
 }
 
 
